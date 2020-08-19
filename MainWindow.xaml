@@ -1,0 +1,35 @@
+﻿<Window x:Class="LockManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LockManager"
+        mc:Ignorable="d"
+        Title="LockManager" Height="350" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*" ></RowDefinition>
+            <RowDefinition Height="0.9*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Grid.Row="0" Content="Odśwież" Name="btnRefresh" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 5 0" Click="BtnRefresh_Click"></Button> 
+            <Button Grid.Column="1" Grid.Row="0" Content="Kill" Name="btnKill" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5 0 0 0" Click="BtnKill_Click"></Button> 
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="1">
+            <DataGrid AutoGenerateColumns="False" Name="dataGrid" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserAddRows="False" 
+                      CanUserDeleteRows="False" CanUserResizeRows="False" CanUserSortColumns="False" SelectionMode="Single" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=Status}" Header="Status" Width="0.13*"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=Username}" Header="Username" Width="0.4*"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=Sid}" Header="Sid" Width="0.17*"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=Serial}" Header="Serial" Width="0.2*"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=Block}" Header="Block" Width="0.1*"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Window>
